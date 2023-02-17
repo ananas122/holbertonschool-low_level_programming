@@ -5,7 +5,7 @@
 /**
 *main - Entry point
 *
-*Return Always 0 (succes)
+*Return Always 0 (Success)
 */
 
 int main(void)
@@ -13,6 +13,6 @@ int main(void)
 {
 printf("with proper grammar, but the outcome is a piece of art,\n");
 
-retourn (0);
+return (0);
   
 }    
