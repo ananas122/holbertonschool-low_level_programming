@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- *main
+ *main - Fonction principale
  *Return: 0
  */
 int main(void)
