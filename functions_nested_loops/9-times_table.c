@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * times_table -   prints the 9 times table, starting with 0
- * rone = row, cone = column, r = digits of current result
+ * rone = row, cone = column, res = digits of current result
  * Return: times table
   */
 void times_table(void)
@@ -16,15 +16,15 @@ void times_table(void)
 		for (cone = 1; cone <= 9; cone++)
 		{
 			res = (rone * cone);
-			if ((d / 10) > 0)
+			if ((res / 10) > 0)
 			{
-				_putchar((d / 10) + '0');
+				_putchar((res / 10) + '0');
 			}
 			else
 			{
 				_putchar(' ');
 			}
-			_putchar((d % 10) + '0');
+			_putchar((res % 10) + '0');
 
 			if (cone < 9)
 			{
