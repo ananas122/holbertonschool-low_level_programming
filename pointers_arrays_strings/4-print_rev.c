@@ -10,6 +10,7 @@ void print_rev(char *s)
 
 	while (*i)
 		i++;
+	i = i-1;
 
 	while (i >= s)
 	{
