@@ -1,12 +1,11 @@
 #include "main.h"
 #include <stdio.h>
 /**
- * _strncat - function similar strcat
- *@s: src
+ *_strncat - function similar strcat
  *@dest: string to destiny
  * @src: string to source
  * @n: value to n
- * Return: return a concatenate string* Return: Always: dest
+ * Return: return a concatenate string
  */
 
 char *_strncat(char *dest, char *src, int n)
