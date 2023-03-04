@@ -1,31 +1,32 @@
 #include "main.h"
 /**
 *cap_string - capitalize words
-*@c: parameter
+*@s: parameter string input
 *Return: 0;
 */
-char *cap_string(char *c)
+char *cap_string(char *s)
 {
-int i = 0;
-int j;
-char a[] = " \t\n,;.!?\"(){}";
-	if (c[0] >= 97 && c[0] <= 122)
+	int i = 0, j = 0;
+	char c[] = {
+		',', ';', '.', '!', '?',
+		'"', '(', ')', '{', ' ',
+		'}', '\n', '\t'};
+
+	if (s[0] >= 'a' && s[0] <= 'z')
+		s[0] -= 32;
+
+	while (s[i] != '\0')
 	{
-		c[0] -= 32;
-	}
-	while (c[i] != '\0')
-	{
-		if (c[i + 1] >= 97 && c[i + 1] <= 122)
-	{
-	for (j = 0; a[j] != '\0'; j++)
-	{
-		if (a[j] == c[i])
-	{
-			c[i + 1] -= 32;
-		break;
-	}
-	}
-	}
+		for (j = 0 ; j < 13 ; j++)
+		{
+			if (c[j] == s[i - 1] && s[i] >= 'a' && s[i] <= 'z')
+			{
+				s[i] -= 32;
+			}
+		}
+
 		i++;
 	}
+
+	return (s);
 }
