@@ -1,26 +1,23 @@
 #include "main.h"
-
 /**
- * _strpbrk - Search String
- * @s: first string.
- * @accept: second string.
- * Return: a pointer to the byte in s that matches one of the
- * bytes in accept, or NULL if no such byte is found.
- */
+*_strpbrk - main
+*@s: s
+*@accept: accepted char
+*Return: Return
+*/
 char *_strpbrk(char *s, char *accept)
 {
-	unsigned int i;
+int x, z;
 
-	while (*s != 0)
+for (x = 0; s[x]; x++)
 	{
-		for (i = 0; *(accept + i) != 0; i++)
+	for (z = 0; accept[z]; z++)
+	{
+		if (s[x] == accept[z])
 		{
-			if (*s == *(accept + i))
-			{
-				return (s);
-			}
+		return (s + x);
 		}
-		s++;
 	}
-	return (0);
+	}
+return (0);
 }
