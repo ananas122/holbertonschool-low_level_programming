@@ -1,5 +1,5 @@
 #include <stdio.h>
-/*
+/**
  * main - Print all arguments received line per line
  * @argc: Number of arguments
  * @argv: Arguments chaine characters
@@ -7,8 +7,9 @@
  */
 int main(int argc, char *argv[])
 {
-	int x;
-	for (x = 0; x < argc; x++)
-	printf("%s\n", argv[x]);
+	int i;
+
+	for (i = 0; i < argc; i++)
+		printf("%s\n", argv[i]);
 	return (0);
 }
