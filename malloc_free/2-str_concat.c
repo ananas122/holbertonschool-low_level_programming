@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "main.h"
+#include <string.h>
 /**
  * str_concat - get ends of input and add together for size
  * @s1: input one to concat
@@ -8,7 +9,6 @@
  * Return: concat of s1 and s2
  */
 char *str_concat(char *s1, char *s2)
-{
 {
 	unsigned int i, len1, len2;
 	char *s;
