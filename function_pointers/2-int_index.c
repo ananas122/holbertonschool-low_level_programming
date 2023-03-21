@@ -4,7 +4,7 @@
 
 /**
  * int_index - function that searches for an integer
- * @array: array 
+ * @array: array
  * @size: size in the array
  * @cmp: compare two values
  * Return: -1 et 0
