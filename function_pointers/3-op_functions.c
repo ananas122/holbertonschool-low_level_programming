@@ -5,7 +5,7 @@
  * op_add - adds 5 functions
  * @a: int a
  * @b: int b
- * Return: sum 
+ * Return: sum integer
  */
 int op_add(int a, int b)
 {
