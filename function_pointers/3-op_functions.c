@@ -12,7 +12,12 @@ int op_add(int a, int b)
 	return (a + b);
 }
 
-
+/**
+ * op_sub - soustract
+ * @a: int a
+ * @b: int b
+ * Return: soustract
+ */
 int op_sub(int a, int b)
 {
 	return (a - b);
