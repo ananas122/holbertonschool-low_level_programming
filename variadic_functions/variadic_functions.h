@@ -5,18 +5,20 @@
 int _putchar(char c);
 int sum_them_all(const unsigned int n, ...);
 void print_numbers(const char *separator, const unsigned int n, ...);
-void print_all(const char * const format, ...);
 void print_strings(const char *separator, const unsigned int n, ...);
+
 /**
- * struct format - Struct format
- *
- * @format: the string format
- * @func: the function for which way to print
+ * print_type - struct for print_all
+ * @type: print type
+ * @f: func to print the type
  */
-typedef struct format
+
+typedef struct print_type
 {
-	char *format;
-	void (*func)(va_list);
-} format_type;
+	char type;
+	void (*f)();
+} print_type_t;
+
+void print_all(const char * const format, ...);
 
 #endif
