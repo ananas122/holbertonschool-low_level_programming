@@ -1,5 +1,15 @@
-#include "lists.h"
 #include <stdio.h>
+#include "lists.h"
+#include <string.h>
+
+/**
+ * add_node - adds a new node at the beginning of a linked list
+ * @head: double pointer to the list_t list
+ * @str: new string to add in the node
+ * Return: the address of the new element, or NULL if it fails
+ */
+
+
 /*Fonction pour ajouter un nouveau nœud à la fin de la liste*/
 list_t *add_node_end(list_t **head, const char *str)
 {
