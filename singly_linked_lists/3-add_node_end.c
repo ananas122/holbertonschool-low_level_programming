@@ -1,53 +1,34 @@
-#include <stdio.h>
 #include "lists.h"
-#include <string.h>
 
 /**
- * add_node - adds a new node at the beginning of a linked list
- * @head: double pointer to the list_t list
- * @str: new string to add in the node
- * Return: the address of the new element, or NULL if it fails
- */
+  * add_node_end - adds a new node at the end
+  * @head: node
+  * @str: string
+  * Return: pointer to node
+  */
 
-
-/*Fonction pour ajouter un nouveau nœud à la fin de la liste*/
 list_t *add_node_end(list_t **head, const char *str)
 {
-    list_t *new_node;               /*Nouveau nœud à ajouter*/
-    list_t *current = *head;        /*Pointeur pour parcourir la liste*/
+	list_t *new_node, *ptr;
 
-    /* Allocation de mémoire pour le nouveau nœud*/
-    new_node = malloc(sizeof(list_t));
-    if (new_node == NULL) {
-        return NULL;
-       /*Retourner NULL si l'allocation de mémoire a échoué*/
-    }
-
-    /* Alloc de mémoire pour la chaîne de caractères et copie de la chaîne*/
-    new_node->str = strdup(str);
-    if (new_node->str == NULL) 
-    {
-        free(new_node); /*Libérer la mémoire allouée pour le nouveau nœud si l'allocation de mémoire a échoué*/
-        return NULL;  /* Retourner NULL si l'allocation de mémoire a échoué*/
-				       }
-
-    new_node->next = NULL; /*Le nouveau nœud doit être le dernier dans la liste*/
-
-    if (*head == NULL) {
-        /* Si la liste est vide, le nouveau nœud est le premier*/
-        *head = new_node;
-    } 
-    else 
-    {
-        /* Sinon, parcourir la liste jusqu'au dernier nœud*/
-        while (current->next != NULL) 
+	new_node = malloc(sizeof(list_t));
+	if (new_node == NULL)
+		return (NULL);
+	new_node->str = strdup(str);
+	new_node->len = strlen(str);
+	new_node->next = NULL;
+	if (*head == NULL)
 	{
-            current = current->next;
-        }
-        /* Ajouter le nouveau nœud après le dernier nœud*/
-        current->next = new_node;
-    }
-
-    return new_node;
-    /* Retourner l'adresse du nouveau nœud ajouté*/
+		*head = new_node;
+		ptr = *head;
+	}
+	else
+	{
+		while (ptr->next != NULL)
+		{
+			ptr = ptr->next;
+		}
+		ptr->next = new_node;
+	}
+	return (ptr);
 }
