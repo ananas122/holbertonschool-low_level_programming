@@ -3,6 +3,7 @@
 /**
  * free_listint - frees a listint_t list
  * @head: ptr to head of linked list
+ * Return : void
  */
 
 void free_dlistint(dlistint_t *head)
