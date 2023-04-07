@@ -2,7 +2,7 @@
 #include <stdio.h>
 /**
  * binary_to_uint - converts a binary number to unsigned int
- * @b: string containing the binary number
+ * @b: String containing the binary number
  * Return: the converted number 0 and 1 and result
  */
 
@@ -21,7 +21,7 @@ unsigned int binary_to_uint(const char *b)
 	if (b[i] != '0' && b[i] != '1')
 	return (0); /*Return 0 if there is a character other than '0' or '1'*/
 
-		result = result * 2 + (b[i] - '0'); /* Convert binary to decimal*/
+	result = (result << 1) + (b[i] - '0');/* Convert binary to decimal*/
 	}
 
 	return (result);
