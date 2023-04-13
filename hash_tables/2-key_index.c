@@ -9,6 +9,6 @@
 unsigned long int key_index(const unsigned char *key, unsigned long int size)
 {
 	return (hash_djb2(key) % size);
-	/*Calcul la valeur de hachage du mot clé en utilisant la func hash_djb2,	puis prendre le % size de la table pour obtenir l'I*/
+	/*Calcul the value of H of key with hash_djbs & take % size of T for given I*/
 
 }
