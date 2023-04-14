@@ -12,20 +12,20 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	hash_node_t *node;
 	/*Vérification des entrées de prmtr NULL*/
 	if (ht == NULL || key == NULL)
-        return NULL;
+		return (NULL);
 
 	index = key_index((const unsigned char *)key, ht->size);
 	/*Obtenir l'index de la clé*/
 	node = ht->array[index];
 
 	while (node != NULL)
-    	{	
+	{
 	if (strcmp(node->key, key) == 0)
-		return node->value;
+		return (node->value);
 
 	node = node->next;
 	}
 
-	return NULL;
+	return (NULL);
 }
 
