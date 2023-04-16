@@ -1,68 +1,50 @@
+#include <stdio.h>
+#include <unistd.h>
 #include "main.h"
-
 /**
- * __exit - prints error messages and exits with exit value
- * @error: num is either exit value or file descriptor
- * @s: str is a name, either of the two filenames
- * @fd: file descriptor
- *
- * Return: 0 on success
+ * main - copies files
+ * @argc: arg cout
+ * @argv: arg values
+ * Return: Always 0 (Success)
  */
-int __exit(int error, char *s, int fd)
+int main(int argc, char **argv)
 {
-	switch (error)
-	{
-	case 97:
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(error);
-	case 98:
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", s);
-		exit(error);
-	case 99:
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", s);
-		exit(error);
-	case 100:
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
-		exit(error);
-	default:
-		return (0);
-	}
-}
-
-/**
- * main - copies one file to another
- * @argc: should be 3
- * @argv: first is file to copy from fd1, second is file to copy to fd2
- *
- * Return: 0 (success), 97-100 (exit value errors)
- */
-int main(int argc, char *argv[])
-{
-	int fd1, fd2, nRead, nWrite;
+	int fd1, fd2, temp1, temp2; /* file descriptors */
+	ssize_t count; /* readcheck */
 	char *buffer[1024];
 
 	if (argc != 3)
-		__exit(97, NULL, 0);
-
-	fd2 = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0664);
-	if (fd2 == -1)
-		__exit(99, argv[2], 0);
-
-	fd1 = open(argv[1], O_RDONLY);
-	if (fd1 == -1)
-		__exit(98, argv[1], 0);
-
-	while ((nRead = read(fd1, buffer, 1024)) != 0)
-	{
-		if (nRead == -1)
-			__exit(98, argv[1], 0);
-
-		nWrite = write(fd2, buffer, nRead);
-		if (nWrite == -1)
-			__exit(99, argv[2], 0);
+	{	dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		return (97);
 	}
+	fd2 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	if (fd2 == -1)
+	{	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		return (99);
+	}
+	fd1 = open(argv[1], O_RDONLY);
+	do {
+		count = read(fd1, buffer, 1024);
+		if (count == -1)
+{	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+	return (98);
+}
+		temp2 = write(fd2, buffer, count);
+		if (temp2 == -1)
+{	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+	return (99);
+}
 
-	close(fd2) == -1 ? (__exit(100, NULL, fd2)) : close(fd2);
-	close(fd1) == -1 ? (__exit(100, NULL, fd1)) : close(fd1);
+	} while (count != 0);
+	temp1 = close(fd1);
+	if (temp1 == -1)
+	{	dprintf(STDERR_FILENO, "Error: Can't close fd 1\n");
+		return (100);
+	}
+	temp2 = close(fd2);
+	if (temp2 == -1)
+	{	dprintf(STDERR_FILENO, "Error: Can't close fd 2\n");
+		return (100);
+	}
 	return (0);
 }
