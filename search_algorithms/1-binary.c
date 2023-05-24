@@ -5,7 +5,6 @@
  * @array: Pointer to the array
  * @size: Size of the array
  * @value: Value to search for
- *
  * Return: Index of the value if found, otherwise -1
  */
 int binary_search(int *array, size_t size, int value)
@@ -18,14 +17,14 @@ int binary_search(int *array, size_t size, int value)
 	while (left <= right)
 	{
 		printArray(array, left, right);
-
+		/* Calcule l'indice du milieu du sous-tableau actuel*/
 		mid = left + (right - left) / 2;
 		if (array[mid] == value)
-			return (mid);
+			return (mid);/*Valeur trouvée, retourne l'indice*/
 		if (array[mid] < value)
-			left = mid + 1;
+			left = mid + 1;/*La valeur est dans la moitié droite*/
 		else
-			right = mid - 1;
+			right = mid - 1;/*La valeur est dans la moitié gauche */
 	}
 	return (-1);
 }
