@@ -32,7 +32,7 @@ int binary_search(int *array, size_t size, int value)
 /**
  * printArray - Print to search, calls function
  * @array: Array to be printed
- * @startIndex: left-most element in array
+ * @startIndex: left-most element in array.
  * @endIndex: right-most element in array.
  */
 void printArray(int *array, size_t startIndex, size_t endIndex)
